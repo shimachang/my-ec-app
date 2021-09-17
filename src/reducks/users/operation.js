@@ -3,7 +3,6 @@ import { push } from "connected-react-router";
 import { auth, db } from "../../firebase/index";
 import { FirebaseTimeStamp } from "../../firebase/index";
 import { signOutAction } from "./actions";
-import { AirlineSeatReclineExtra } from "@material-ui/icons";
 
 export const ListenAuthState = () => {
     return async (dispatch) => {
