@@ -1,7 +1,10 @@
 const initialState = {
+    products: {
+        list: []
+    },
     users: {
-        icon: "",
         inSignedIn: false,
+        role: "",
         uid: "",
         username: "",
     },
