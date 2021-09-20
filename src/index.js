@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import createStore from "./reducks/store/store";
 import { ConnectedRouter } from "connected-react-router";
 import * as History from "history";
+import {ThemeProvider } from "@material-ui/core/styles";
+import {theme} from "./assets/theme"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
@@ -13,10 +15,12 @@ export const store = createStore(history);
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <App />
+            <ThemeProvider theme={theme}>
+                <App />
+            </ThemeProvider>
         </ConnectedRouter>
     </Provider>,
     document.getElementById("root")
-);
+);  
 
 reportWebVitals();
