@@ -1,9 +1,26 @@
-import { signInAction } from "./actions";
+import { signInAction, fetchProductsInCartAction, signOutAction } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db } from "../../firebase/index";
 import { FirebaseTimeStamp } from "../../firebase/index";
-import { signOutAction } from "./actions";
 
+const usersRef = db.collection('users')
+
+export const addProductToCart = (addedProduct) => {
+    return async (dispatch, getState) => {
+        const uid = getState().users.uid;
+        const cartRef = usersRef.doc(uid).collection('cart').doc();
+        addedProduct['cartId'] = cartRef.id;
+        await cartRef.set(addedProduct);
+        dispatch(push('/cart'))
+    }
+}
+
+
+export const fetchProductsInCart = (products) => {
+    return async (dispatch) => {
+        dispatch(fetchProductsInCartAction(products));
+    };
+};
 export const ListenAuthState = () => {
     return async (dispatch) => {
         return auth.onAuthStateChanged((user) => {

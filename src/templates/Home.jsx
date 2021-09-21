@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserId, getUserName } from "../reducks/users/selectors";
-import {signOut} from "../reducks/users/operation"
+import {signOut} from "../reducks/users/operations"
 
 const Home = () => {
     const dispatch = useDispatch()

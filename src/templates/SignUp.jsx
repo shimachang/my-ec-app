@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { TextInput, PrimaryButton } from "../components/Uikit";
-import { signUp } from "../reducks/users/operation";
+import { signUp } from "../reducks/users/operations";
 import { push } from "connected-react-router";
 
 const SignUp = () => {
